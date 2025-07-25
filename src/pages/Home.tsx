@@ -31,22 +31,53 @@ const Home = () => {
       <div className="p-4 space-y-6 animate-fade-in">
         {/* Slider Image Section */}
         <Card className="bg-gradient-primary text-white rounded-2xl shadow-card overflow-hidden">
-          <div className="h-32 relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex space-x-4 animate-[slide-in-right_3s_ease-in-out_infinite]">
-                <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white text-xs font-medium">Policy 1</span>
-                </div>
-                <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white text-xs font-medium">Policy 2</span>
-                </div>
-                <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white text-xs font-medium">Policy 3</span>
-                </div>
+          <div className="h-40 relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="flex space-x-3 animate-[slide-in-right_8s_linear_infinite] will-change-transform">
+                <img 
+                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=120&fit=crop&crop=center" 
+                  alt="Technology" 
+                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=200&h=120&fit=crop&crop=center" 
+                  alt="Programming" 
+                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=200&h=120&fit=crop&crop=center" 
+                  alt="Code" 
+                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=200&h=120&fit=crop&crop=center" 
+                  alt="Ocean" 
+                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=200&h=120&fit=crop&crop=center" 
+                  alt="Night Sky" 
+                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=200&h=120&fit=crop&crop=center" 
+                  alt="Nature" 
+                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=200&h=120&fit=crop&crop=center" 
+                  alt="Workspace" 
+                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=120&fit=crop&crop=center" 
+                  alt="Collaboration" 
+                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
+                />
               </div>
             </div>
-            <div className="absolute bottom-2 left-4">
-              <span className="text-white text-sm font-medium">Featured Policies</span>
+            <div className="absolute bottom-3 left-4 z-10">
+              <span className="text-white text-sm font-medium drop-shadow-lg">Featured Content</span>
             </div>
           </div>
         </Card>
