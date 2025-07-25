@@ -50,9 +50,9 @@ const EligibilityForm = () => {
       />
       <Button 
         size="sm" 
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-gradient-primary text-white rounded-lg px-2 py-1 text-xs h-8"
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-gradient-primary text-white rounded-lg px-2 py-1 text-xs h-6"
       >
-        <Upload className="h-3 w-3 mr-1" />
+        <Upload className="h-2.5 w-2.5 mr-1" />
         Upload
       </Button>
     </div>
