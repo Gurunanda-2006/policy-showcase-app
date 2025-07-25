@@ -10,28 +10,48 @@ const PolicyList = () => {
   const policies = [
     {
       id: 1,
-      english: "Ladali Bahin Yojana",
-      hindi: "लाडली बहीण योजना"
+      english: "National Education Policy",
+      hindi: "राष्ट्रीय शिक्षा नीति"
     },
     {
       id: 2,
-      english: "Rajkiy Dotth Yojana", 
-      hindi: "राजकीय दूत योजना"
+      english: "Ayushman Bharat Health Scheme", 
+      hindi: "आयुष्मान भारत स्वास्थ्य योजना"
     },
     {
       id: 3,
-      english: "Ladali Bahin Yojana",
-      hindi: "लाडली बहीण योजना"
+      english: "PM Kisan Welfare Scheme",
+      hindi: "पीएम किसान कल्याण योजना"
     },
     {
       id: 4,
-      english: "Ladali Bahin Yojana",
-      hindi: "लाडली बहीण योजना"
+      english: "Smart Cities Infrastructure Mission",
+      hindi: "स्मार्ट सिटी इन्फ्रास्ट्रक्चर मिशन"
     },
     {
       id: 5,
-      english: "Ladali Bahin Yojana",
-      hindi: "लाडली बहीण योजना"
+      english: "Digital India Sovereignty Initiative",
+      hindi: "डिजिटल इंडिया संप्रभुता पहल"
+    },
+    {
+      id: 6,
+      english: "Social Inclusion Development Program",
+      hindi: "सामाजिक समावेश विकास कार्यक्रम"
+    },
+    {
+      id: 7,
+      english: "National Security Enhancement Plan",
+      hindi: "राष्ट्रीय सुरक्षा संवर्धन योजना"
+    },
+    {
+      id: 8,
+      english: "GST Taxation Reform Policy",
+      hindi: "जीएसटी कराधान सुधार नीति"
+    },
+    {
+      id: 9,
+      english: "Citizenship Amendment Framework",
+      hindi: "नागरिकता संशोधन ढांचा"
     }
   ];
 
