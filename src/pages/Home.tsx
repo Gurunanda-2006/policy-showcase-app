@@ -30,10 +30,24 @@ const Home = () => {
       
       <div className="p-4 space-y-6 animate-fade-in">
         {/* Slider Image Section */}
-        <Card className="p-6 bg-gradient-primary text-white rounded-2xl shadow-card">
-          <div className="text-center space-y-2">
-            <h2 className="text-xl font-semibold">Slider Image</h2>
-            <p className="text-sm opacity-90">(Super admin can change)</p>
+        <Card className="bg-gradient-primary text-white rounded-2xl shadow-card overflow-hidden">
+          <div className="h-32 relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="flex space-x-4 animate-[slide-in-right_3s_ease-in-out_infinite]">
+                <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white text-xs font-medium">Policy 1</span>
+                </div>
+                <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white text-xs font-medium">Policy 2</span>
+                </div>
+                <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white text-xs font-medium">Policy 3</span>
+                </div>
+              </div>
+            </div>
+            <div className="absolute bottom-2 left-4">
+              <span className="text-white text-sm font-medium">Featured Policies</span>
+            </div>
           </div>
         </Card>
 
