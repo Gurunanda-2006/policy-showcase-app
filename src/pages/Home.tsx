@@ -63,12 +63,12 @@ const Home = () => {
   };
 
   const features = [
-    { icon: DollarSign, label: "Earn Money", color: "text-green-600", path: "/earn-money" },
-    { icon: Flag, label: "Daily Banner", color: "text-blue-600", path: "/daily-banner" },
-    { icon: User, label: "Mini website", color: "text-purple-600", path: "/mini-website" },
-    { icon: MessageSquare, label: "Marketing Messenger", color: "text-orange-600", path: "/marketing" },
-    { icon: FileText, label: "Govt policy", color: "text-primary", path: "/govt-policy" },
-    { icon: Globe, label: "Political Update", color: "text-red-600", path: "/political-update", badge: "Working on this Widget" },
+    { icon: DollarSign, label: "Earn Money", color: "bg-[hsl(var(--widget-green))]", path: "/earn-money" },
+    { icon: Flag, label: "Daily Banner", color: "bg-[hsl(var(--widget-blue))]", path: "/daily-banner" },
+    { icon: User, label: "Mini website", color: "bg-[hsl(var(--widget-purple))]", path: "/mini-website" },
+    { icon: MessageSquare, label: "Marketing Messenger", color: "bg-[hsl(var(--widget-pink))]", path: "/marketing" },
+    { icon: FileText, label: "Govt policy", color: "bg-[hsl(var(--widget-orange))]", path: "/govt-policy" },
+    { icon: Globe, label: "Political Update", color: "bg-[hsl(var(--widget-red))]", path: "/political-update", badge: "Working on this Widget" },
   ];
 
   return (
@@ -124,7 +124,7 @@ const Home = () => {
                   Working
                 </div>
               )}
-              <div className="bg-primary rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+              <div className={`${feature.color} rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3`}>
                 <feature.icon className="h-6 w-6 text-white" />
               </div>
               <p className="text-sm font-medium text-foreground">{feature.label}</p>

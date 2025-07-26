@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
+    --background: 250 100% 99%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -17,11 +17,11 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* PhonePe-inspired purple palette */
-    --primary: 280 100% 55%;
+    /* PhonePe purple palette */
+    --primary: 271 81% 56%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 285 100% 65%;
-    --primary-dark: 275 100% 45%;
+    --primary-light: 275 85% 65%;
+    --primary-dark: 268 78% 48%;
 
     --secondary: 0 0% 96%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -29,7 +29,7 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 285 100% 65%;
+    --accent: 275 85% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -37,7 +37,17 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 280 100% 55%;
+    --ring: 271 81% 56%;
+
+    /* Widget colors matching uploaded images */
+    --widget-green: 142 71% 45%;
+    --widget-blue: 214 100% 59%;
+    --widget-purple: 271 81% 56%;
+    --widget-pink: 340 75% 55%;
+    --widget-orange: 25 95% 53%;
+    --widget-red: 0 72% 51%;
+    --widget-teal: 174 72% 56%;
+    --widget-gray: 220 13% 46%;
 
     /* Custom gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
@@ -49,21 +59,14 @@ All colors MUST be HSL.
 
     --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
-
+    --sidebar-background: 250 100% 99%;
     --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-primary: 271 81% 56%;
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 271 81% 56%;
   }
 
   .dark {

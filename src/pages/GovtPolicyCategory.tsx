@@ -6,18 +6,16 @@ const GovtPolicyCategory = () => {
   const navigate = useNavigate();
 
   const categories = [
-    "Women Policy",
-    "Agri. Policy", 
-    "Student Policy",
-    "Employee Policy",
-    "Child Policy",
-    "Health Policy",
-    "EV Policy",
-    "Education Policy",
-    "Skill Policy",
-    "Car Policy", // Added as requested
-    "Women Policy",
-    "Women Policy"
+    { name: "Women Policy", color: "bg-[hsl(var(--widget-pink))]" },
+    { name: "Agri. Policy", color: "bg-[hsl(var(--widget-green))]" },
+    { name: "Student Policy", color: "bg-[hsl(var(--widget-blue))]" },
+    { name: "Employee Policy", color: "bg-[hsl(var(--widget-purple))]" },
+    { name: "Child Policy", color: "bg-[hsl(var(--widget-orange))]" },
+    { name: "Health Policy", color: "bg-[hsl(var(--widget-red))]" },
+    { name: "EV Policy", color: "bg-gradient-to-r from-[hsl(var(--widget-teal))] to-[hsl(var(--widget-blue))]" },
+    { name: "Education Policy", color: "bg-[hsl(var(--widget-purple))]" },
+    { name: "Skill Policy", color: "bg-[hsl(var(--widget-teal))]" },
+    { name: "Car Policy", color: "bg-[hsl(var(--widget-gray))]" }
   ];
 
   return (
@@ -33,10 +31,10 @@ const GovtPolicyCategory = () => {
           {categories.map((category, index) => (
             <Card 
               key={index}
-              className="p-4 text-center bg-gradient-primary text-white rounded-2xl shadow-card hover:shadow-elevated transition-all duration-200 hover:scale-105 cursor-pointer"
-              onClick={() => navigate('/policy-list', { state: { category } })}
+              className={`p-4 text-center ${category.color} text-white rounded-2xl shadow-card hover:shadow-elevated transition-all duration-200 hover:scale-105 cursor-pointer`}
+              onClick={() => navigate('/policy-list', { state: { category: category.name } })}
             >
-              <p className="text-sm font-medium">{category}</p>
+              <p className="text-sm font-medium">{category.name}</p>
             </Card>
           ))}
         </div>
