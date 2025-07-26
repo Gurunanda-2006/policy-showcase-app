@@ -11,9 +11,56 @@ import {
   Send
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const images = [
+    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=160&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=160&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=160&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=400&h=160&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=400&h=160&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=160&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=400&h=160&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=160&fit=crop&crop=center"
+  ];
+
+  // Auto-slide functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 2500); // Semi-fast: 2.5 seconds
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }
+    if (isRightSwipe) {
+      setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    }
+  };
 
   const features = [
     { icon: DollarSign, label: "Earn Money", color: "text-green-600", path: "/earn-money" },
@@ -31,51 +78,33 @@ const Home = () => {
       <div className="p-4 space-y-6 animate-fade-in">
         {/* Slider Image Section */}
         <Card className="bg-gradient-primary text-white rounded-2xl shadow-card overflow-hidden">
-          <div className="h-40 relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="flex space-x-3 animate-[slide-in-right_8s_linear_infinite] will-change-transform">
-                <img 
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=120&fit=crop&crop=center" 
-                  alt="Technology" 
-                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=200&h=120&fit=crop&crop=center" 
-                  alt="Programming" 
-                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=200&h=120&fit=crop&crop=center" 
-                  alt="Code" 
-                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=200&h=120&fit=crop&crop=center" 
-                  alt="Ocean" 
-                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=200&h=120&fit=crop&crop=center" 
-                  alt="Night Sky" 
-                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=200&h=120&fit=crop&crop=center" 
-                  alt="Nature" 
-                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=200&h=120&fit=crop&crop=center" 
-                  alt="Workspace" 
-                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=120&fit=crop&crop=center" 
-                  alt="Collaboration" 
-                  className="w-20 h-24 rounded-lg object-cover shadow-lg"
-                />
-              </div>
+          <div 
+            className="h-40 relative cursor-pointer"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className="absolute inset-0">
+              <img 
+                src={images[currentImageIndex]}
+                alt="Featured Content" 
+                className="w-full h-full object-cover transition-all duration-500 ease-in-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
+            
+            {/* Dots indicator */}
+            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1 z-10">
+              {images.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                  }`}
+                />
+              ))}
+            </div>
+            
             <div className="absolute bottom-3 left-4 z-10">
               <span className="text-white text-sm font-medium drop-shadow-lg">Featured Content</span>
             </div>
